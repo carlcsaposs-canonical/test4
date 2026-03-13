@@ -1,0 +1,6 @@
+on:
+  push:
+
+jobs:
+  foo:
+    uses: ./.github/workflows/foo.yaml
