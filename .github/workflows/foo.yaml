@@ -22,4 +22,5 @@ jobs:
       - name: Run actionlint
         run: |
           '${{ steps.install.outputs.executable }}' -color
-    permissions: {}
+    permissions:
+      contents: read
