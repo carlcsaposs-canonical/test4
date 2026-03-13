@@ -4,3 +4,4 @@ on:
 jobs:
   foo:
     uses: ./.github/workflows/foo.yaml
+    permissions: {}
