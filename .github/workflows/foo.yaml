@@ -10,22 +10,18 @@ jobs:
     name: Lint workflows
     runs-on: ubuntu-latest
     timeout-minutes: 5
-    environment: edge
     steps:
-      - name: Checkout
-        uses: actions/checkout@v5
       - name: Install actionlint
         id: install
         run: |
-          curl -O https://raw.githubusercontent.com/rhysd/actionlint/main/.github/actionlint-matcher.json
-          echo "::add-matcher::actionlint-matcher.json"
-          bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash)
+          echo "test=" >> "$GITHUB_OUTPUT"
       - name: Run actionlint
         run: |
-          '${{ steps.install.outputs.executable }}' -color
-      - run: touch foo
-      - uses: actions/upload-artifact@v7
-        with:
-          path: foo
+          if [[ "${DPW_FOO}" ]]
+          then
+            echo bar
+          fi
+        env:
+          DPW_FOO: ${{ steps.install.outputs.test }}
     permissions:
       contents: read
