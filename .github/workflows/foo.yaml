@@ -6,22 +6,5 @@ on:
   push:
 
 jobs:
-  actionlint:
-    name: Lint workflows
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    steps:
-      - name: Install actionlint
-        id: install
-        run: |
-          echo "test=a" >> "$GITHUB_OUTPUT"
-      - name: Run actionlint
-        run: |
-          if [[ "${DPW_FOO}" ]]
-          then
-            echo bar
-          fi
-        env:
-          DPW_FOO: ${{ steps.install.outputs.test }}
-    permissions:
-      contents: read
+  foo:
+    uses: ./.github/workflows/bar.yaml
