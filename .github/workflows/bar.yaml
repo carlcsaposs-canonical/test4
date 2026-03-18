@@ -1,0 +1,15 @@
+on:
+  workflow_call:
+    secrets:
+      foo:
+        description: bar
+        required: true
+
+jobs:
+  foo:
+    runs-on: ubuntu-latest
+    environment: edge
+    steps:
+      - shell: python
+        run: |
+          print(len("${{ secrets.foo }}"))
