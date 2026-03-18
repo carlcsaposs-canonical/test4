@@ -7,6 +7,4 @@ on:
 
 jobs:
   foo:
-    uses: ./.github/workflows/bar.yaml
-    secrets:
-      foo: ${{ secrets.FIZZ }}
+    uses: owenthereal/action-upterm@v1
