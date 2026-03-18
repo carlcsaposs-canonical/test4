@@ -8,3 +8,5 @@ on:
 jobs:
   foo:
     uses: ./.github/workflows/bar.yaml
+    secrets:
+      foo: ${{ secrets.FIZZ }}
